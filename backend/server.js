@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/api/search', async (req, res) => {
     let search = req.body.search;
+    console.log('api called with ['+search+ ']' )
     let find = await Fruit.find({name: {$regex: new RegExp('.*'+search+'.*','i')}}).limit(10).exec();
     res.send(find);
 });

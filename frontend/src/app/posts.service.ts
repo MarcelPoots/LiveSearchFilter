@@ -14,10 +14,8 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   searchFruits(query : string){
-    return this.http.post<{payload: string}>('http://localhost:3000/api/search', {payload: query}, {
-      headers: new HttpHeaders({'Content-Type': 'application/json',
-      'Accept': '*/*',
-        'Access-Control-Allow-Origin': '*'})
+    return this.http.post<{payload: string}>('/api/search', {payload: query}, {
+      headers: new HttpHeaders({'Content-Type': 'text/plain charset=UTF-8'})
     }).pipe(
       map(data => data.payload)
     )
