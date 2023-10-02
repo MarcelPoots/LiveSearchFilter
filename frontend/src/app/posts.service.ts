@@ -14,10 +14,11 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   searchFruits(query : string){
-    return this.http.post<{payload: string}>('/api/search', {payload: query}, {
-      headers: new HttpHeaders({'Content-Type': 'text/plain charset=UTF-8'})
+    return this.http.post<{payload: Array<Fruit>}>('/api/search', {search: query}, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     }).pipe(
-      map(data => data.payload)
+      map(data =>  data.payload)
     )
+
   }
 }
