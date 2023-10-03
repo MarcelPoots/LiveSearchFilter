@@ -9,14 +9,23 @@ import {Fruit, PostsService} from "./posts.service";
 export class AppComponent {
 
   fruits:Array<Fruit> = [];
+  hasQueried: Boolean = false;
   constructor(private service: PostsService) {
   }
   sendData(event: any) {
     let query = event.target.value;
-    console.log(query);
+
+
+    if (query && query.trim().length < 1) {
+      this.fruits = [];
+      this.hasQueried = false;
+      return; // only spaces
+    }
+    console.log('Input: ' + query);
     this.service.searchFruits(query.trim()).subscribe(results => {
       this.fruits = results;
-      console.log('Results ' + this.fruits )
+      this.hasQueried = true;
+     // console.log('Results ' + this.fruits )
     })
   }
 

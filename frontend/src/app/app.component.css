@@ -17,7 +17,7 @@ h1 {
 .search-results {
     max-width: 600px;
     width: 65%;
-    margin: 20px auto0 auto;
+    margin: 20px auto 0 auto;
     hr {
         border: none;
         height: 1px;

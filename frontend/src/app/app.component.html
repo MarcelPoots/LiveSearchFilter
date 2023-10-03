@@ -1,7 +1,8 @@
 <h1>Live Fruit search</h1>
 <input type="text" name="search-box" class="search-box" (keyup)="sendData($event)">
+
 <section class="search-results">
-  <p *ngIf="fruits.length < 1">Sorry, nothing found</p>
+  <p *ngIf="fruits.length < 1 && hasQueried">Sorry, nothing found</p>
   <ng-template ngFor let-fruit [ngForOf]="fruits" let-i="index">
 
     <hr *ngIf="i > 0"/>
