@@ -14,7 +14,7 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   searchFruits(query : string){
-    return this.http.post<{payload: Array<Fruit>}>('http://localhost:3000/api/search', {search: query}, {
+    return this.http.post<{payload: Array<Fruit>}>('/api/search', {search: query}, {
       headers: new HttpHeaders({'Content-Type': 'application/json',
 
         'Access-Control-Allow-Origin': '*',
